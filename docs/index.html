@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movement &amp; Mental Health in Children · Visualización</title>
+  <link rel="preconnect" href="https://cdn.plot.ly" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Librerías de visualización (cliente, compatibles con GitHub Pages) -->
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">◐</span>
+      <div>
+        <h1>Movement &amp; Mental Health in Children</h1>
+        <p class="subtitle">Actividad física (Apple Watch) ↔ salud mental infantil · SDQ + SNAP-IV</p>
+      </div>
+    </div>
+    <a class="source" href="https://zenodo.org/records/14875672" target="_blank" rel="noopener">Dataset Zenodo ↗</a>
+  </header>
+
+  <nav class="nav">
+    <a href="#overview" class="active">Resumen</a>
+    <a href="#psychometric">A · Psicométrico</a>
+    <a href="#movement">B · Movimiento</a>
+    <a href="#relation">C · Relación</a>
+    <a href="#clusters">D · Segmentación</a>
+    <a href="#temporal">E · Temporal</a>
+  </nav>
+
+  <main>
+    <p id="loading" class="loading">Cargando datos…</p>
+
+    <!-- RESUMEN -->
+    <section id="overview" class="hidden">
+      <h2>Resumen del estudio</h2>
+      <p class="section-desc">Características demográficas de la muestra y cobertura de los datos de sensor.</p>
+      <div class="cards" id="kpi-cards"></div>
+      <div class="grid-2">
+        <div class="panel"><div id="chart-sex"></div></div>
+        <div class="panel"><div id="chart-bmi"></div></div>
+      </div>
+    </section>
+
+    <!-- A · PSICOMÉTRICO -->
+    <section id="psychometric" class="hidden">
+      <h2>A · Perfilado psicométrico</h2>
+      <p class="section-desc">Distribución de las subescalas del SDQ (dificultades y conducta prosocial) y del SNAP-IV (TDAH).</p>
+      <div class="grid-2">
+        <div class="panel"><div id="chart-sdq"></div></div>
+        <div class="panel"><div id="chart-snap"></div></div>
+      </div>
+      <p class="note">Nota: el ítem <code>SDQ19</code> (acoso entre iguales) no está en el dataset; la subescala <em>Peer</em> se prorratea con 4 ítems.</p>
+    </section>
+
+    <!-- B · MOVIMIENTO -->
+    <section id="movement" class="hidden">
+      <h2>B · Fenotipos de movimiento</h2>
+      <p class="section-desc">Intensidad del movimiento (magnitud de la aceleración de usuario) y patrón circadiano poblacional.</p>
+      <div class="grid-2">
+        <div class="panel"><div id="chart-movement-bar"></div></div>
+        <div class="panel">
+          <h3 class="panel-title">Patrón circadiano (D3)</h3>
+          <div id="chart-circadian"></div>
+          <p class="note">Las grabaciones se concentran en la tarde, por lo que el reloj solo cubre algunas horas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- C · RELACIÓN -->
+    <section id="relation" class="hidden">
+      <h2>C · Movimiento ↔ salud mental</h2>
+      <p class="section-desc">Correlaciones de Pearson entre las features de movimiento y las puntuaciones psicométricas.</p>
+      <div class="panel"><div id="chart-corr"></div></div>
+      <div class="panel">
+        <div class="controls">
+          <label>Eje X (movimiento): <select id="sel-x"></select></label>
+          <label>Eje Y (salud mental): <select id="sel-y"></select></label>
+        </div>
+        <div id="chart-scatter"></div>
+      </div>
+    </section>
+
+    <!-- D · SEGMENTACIÓN -->
+    <section id="clusters" class="hidden">
+      <h2>D · Segmentación de perfiles</h2>
+      <p class="section-desc">Agrupación KMeans sobre features de movimiento y salud mental, proyectada a 2D con PCA.</p>
+      <div class="grid-2">
+        <div class="panel"><div id="chart-clusters"></div></div>
+        <div class="panel">
+          <h3 class="panel-title">Perfil medio por grupo</h3>
+          <div id="cluster-profiles"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- E · TEMPORAL -->
+    <section id="temporal" class="hidden">
+      <h2>E · Dinámica temporal</h2>
+      <p class="section-desc">Intensidad media por hora del día y comparación entre días laborables y fin de semana.</p>
+      <div class="grid-2">
+        <div class="panel"><div id="chart-hourly"></div></div>
+        <div class="panel"><div id="chart-weekday"></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Práctica de Visualización · Parte II — datos preagregados con notebooks de Python; visualización estática con Plotly.js + D3.js.</p>
+  </footer>
+
+  <!-- Lógica -->
+  <script src="js/main.js"></script>
+  <script src="js/charts/overview.js"></script>
+  <script src="js/charts/psychometric.js"></script>
+  <script src="js/charts/movement.js"></script>
+  <script src="js/charts/relation.js"></script>
+  <script src="js/charts/clusters.js"></script>
+  <script src="js/charts/temporal.js"></script>
+  <script>window.addEventListener('DOMContentLoaded', () => APP.init());</script>
+</body>
+</html>

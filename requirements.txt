@@ -1,0 +1,9 @@
+# ETL y análisis (Parte II)
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.3
+scipy>=1.10
+jupyter>=1.0
+ipykernel>=6.0
+# Opcional: lectura rápida de los ficheros _T grandes
+# polars>=0.20

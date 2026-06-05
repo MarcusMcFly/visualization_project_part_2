@@ -1,0 +1,24 @@
+# === Datos crudos (2,73 GB) — NUNCA se suben a GitHub ===
+datasets/raw/
+datasets/interim/
+*.csv
+# (permitimos los JSON ligeros del dashboard)
+!docs/data/*.json
+
+# === Python ===
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+.python-version
+
+# === Notebooks: salidas pesadas (opcional, comentar si se quieren versionar) ===
+# *.ipynb
+
+# === SO / editores ===
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
