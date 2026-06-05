@@ -2,7 +2,7 @@
 
 Práctica universitaria realizada como parte de la asignatura "Visualización de Datos" del Máster Universitario en Ciencia de Datos de la UOC.
 
-Proyecto público: https://marcusmcfly.github.io/Visual_analytics_storytelling/
+Proyecto público: https://marcusmcfly.github.io/visualization_project_part_2/
 
 Visualización interactiva de la relación entre **actividad física** (Apple Watch Series 7) y
 **salud mental infantil** (cuestionarios SDQ y SNAP-IV), basada en el dataset
