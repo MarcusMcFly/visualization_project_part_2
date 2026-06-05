@@ -71,6 +71,10 @@ preagregados en `docs/data/`) es legítimo siempre que se mantenga la atribució
 > DOI: [10.5281/zenodo.14875672](https://doi.org/10.5281/zenodo.14875672) ·
 > <https://zenodo.org/records/14875672>
 
+El propio proyecto (código, notebooks, scripts, sitio web y contenido original) se publica
+bajo licencia MIT, pero los datos originales y los datos derivados de este dataset
+siguen sujetos a CC BY 4.0 y requieren la atribución indicada.
+
 Los datos están **anonimizados** (los participantes se identifican con códigos como `H1`, `W4`…,
 sin datos personales directos), por lo que su publicación abierta no plantea problemas adicionales
-de privacidad más allá de mantener la atribución exigida por la licencia.
+más allá de mantener la atribución exigida por la licencia.
